@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_cse110_lab5" default="compile.module.cse110_lab5">
+  <dirname property="module.cse110_lab5.basedir" file="${ant.file.module_cse110_lab5}"/>
+  
+  <property name="module.jdk.home.cse110_lab5" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.cse110_lab5" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.cse110_lab5" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.cse110_lab5" value="-encoding UTF-8 -source 12 -target 12 ${compiler.args}"/>
+  
+  <property name="cse110_lab5.output.dir" value="${module.cse110_lab5.basedir}/out/production/CSE110_Lab5"/>
+  <property name="cse110_lab5.testoutput.dir" value="${module.cse110_lab5.basedir}/out/test/CSE110_Lab5"/>
+  
+  <path id="cse110_lab5.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="cse110_lab5.module.production.classpath">
+    <path refid="${module.jdk.classpath.cse110_lab5}"/>
+  </path>
+  
+  <path id="cse110_lab5.runtime.production.module.classpath">
+    <pathelement location="${cse110_lab5.output.dir}"/>
+  </path>
+  
+  <path id="cse110_lab5.module.classpath">
+    <path refid="${module.jdk.classpath.cse110_lab5}"/>
+    <pathelement location="${cse110_lab5.output.dir}"/>
+  </path>
+  
+  <path id="cse110_lab5.runtime.module.classpath">
+    <pathelement location="${cse110_lab5.testoutput.dir}"/>
+    <pathelement location="${cse110_lab5.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.cse110_lab5">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.cse110_lab5">
+    <patternset refid="excluded.from.module.cse110_lab5"/>
+  </patternset>
+  
+  <path id="cse110_lab5.module.sourcepath">
+    <dirset dir="${module.cse110_lab5.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.cse110_lab5" depends="compile.module.cse110_lab5.production,compile.module.cse110_lab5.tests" description="Compile module CSE110_Lab5"/>
+  
+  <target name="compile.module.cse110_lab5.production" depends="register.custom.compilers" description="Compile module CSE110_Lab5; production classes">
+    <mkdir dir="${cse110_lab5.output.dir}"/>
+    <javac2 destdir="${cse110_lab5.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.cse110_lab5}/javac">
+      <compilerarg line="${compiler.args.cse110_lab5}"/>
+      <bootclasspath refid="cse110_lab5.module.bootclasspath"/>
+      <classpath refid="cse110_lab5.module.production.classpath"/>
+      <src refid="cse110_lab5.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.cse110_lab5"/>
+    </javac2>
+    
+    <copy todir="${cse110_lab5.output.dir}">
+      <fileset dir="${module.cse110_lab5.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.cse110_lab5.tests" depends="register.custom.compilers,compile.module.cse110_lab5.production" description="compile module CSE110_Lab5; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.cse110_lab5" description="cleanup module">
+    <delete dir="${cse110_lab5.output.dir}"/>
+    <delete dir="${cse110_lab5.testoutput.dir}"/>
+  </target>
+</project>
