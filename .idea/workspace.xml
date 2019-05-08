@@ -8,6 +8,7 @@
       <change afterPath="$PROJECT_DIR$/src/edu/ucsd/cs110/temperature/TemperatureConverter.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/edu/ucsd/cs110/tests/CelsiusTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/edu/ucsd/cs110/tests/FahrenheitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -294,7 +295,7 @@
       <workItem from="1556989072674" duration="859000" />
       <workItem from="1557277010434" duration="2718000" />
       <workItem from="1557339600629" duration="1422000" />
-      <workItem from="1557341052125" duration="5969000" />
+      <workItem from="1557341052125" duration="6253000" />
     </task>
     <servers />
   </component>
@@ -322,7 +323,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13493000" />
+    <option name="totallyTimeSpent" value="13777000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
